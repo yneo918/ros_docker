@@ -1,0 +1,14 @@
+services:
+  ros2:
+    build:
+      context: .
+    network_mode: host
+    environment:
+      - ROS_WS=/ros2_ws
+      - RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+      - ROS_DOMAIN_ID=0
+    volumes:
+      - ./pkg:/ros2_ws/src
+    tty: true
+    stdin_open: true
+    command: bash
